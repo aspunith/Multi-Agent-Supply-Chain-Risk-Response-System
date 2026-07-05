@@ -72,16 +72,26 @@ Each agent maps to a distinct problem sub-structure, tool, and failure mode:
 - **Observability:** `traces/<run>.json` records every step and message with token/cost/latency,
   so post-hoc we can see exactly what each agent did and why.
 
-## Section 3 — Results & Error Analysis _(fill after runs)_
-- Success path: disruption detected → SKUs re-forecast → feasible plan (cost vs. greedy baseline
-  = **[cost_delta]**, **[%]** savings) → Supervisor escalates on $-threshold → human **approves** →
-  executed. Trace: `traces/run-success.json`.
-- Failure/edge path: broad supply shock + no-stockout policy → optimizer **infeasible** →
-  Supervisor escalates `infeasible_plan` → human **rejects** (hold & renegotiate). Trace:
-  `traces/run-failure.json`.
-- Honest failure analysis: forecast error propagates into the optimizer; sensitivity of the plan
-  to ±X% forecast error = **[measure and report]**. Signal agent precision/recall vs. the injected
-  ground-truth disruption = **[report]**.
+## Section 3 — Results & Error Analysis
+Metrics are out-of-sample (held-out tail for forecasting, scenario-based for the optimizer),
+regenerate with `python run.py --evaluate` → `results/metrics.md`.
+
+- **Success path:** disruption detected → 8 SKUs re-forecast → feasible plan (**$109.8k vs.
+  $253.2k greedy baseline = 56.6% lower**) → Supervisor escalates on emergency spend → human
+  **approves** → executed. Trace: `traces/run-success.json`.
+- **Failure/edge path:** supply shock + no-stockout policy → optimizer **infeasible** → Supervisor
+  escalates `infeasible_plan` → human **rejects** (hold & renegotiate). Trace: `traces/run-failure.json`.
+- **Signal detection:** Precision/Recall/F1 = **1.0** vs. the injected ground truth. Honest caveat:
+  the synthetic signal is clean (anomaly + news align perfectly), so this is an upper bound — real
+  signals are noisier and would need a tuned threshold and precision/recall trade-off.
+- **Forecast:** held-out MAPE **7.5%**, 80% interval coverage **0.82** (well-calibrated vs. the 0.80
+  target). No leakage — the last 14 days are excluded from training.
+- **Optimizer quality:** LP-relaxation optimality gap **0.04%** (MILP is effectively optimal);
+  constraint satisfaction **1.0** vs. greedy **0.8** (greedy exceeds the disrupted supplier's capacity).
+- **Sensitivity / where it breaks:** plan cost elasticity to demand ≈ **2.2** — super-linear because
+  once demand exceeds the disrupted supplier's reduced capacity, unmet demand and stockout penalties
+  dominate. The optimizer is therefore most fragile to demand *overestimation* under a live
+  disruption; a 20% forecast over-shoot raises cost ~55% and leaves ~1.2k units unmet.
 
 ## Section 4 — Production & Limitations
 - **Production consideration:** fresh data arrives on a schedule/event; a re-solve is triggered by

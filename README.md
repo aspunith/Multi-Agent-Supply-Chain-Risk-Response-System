@@ -55,10 +55,14 @@ python run.py --show-schema
 
 # 3) Run both end-to-end scenarios; traces export to traces/
 python run.py --scenario both
+
+# 4) Run the evaluation harness; metrics export to results/
+python run.py --evaluate
 ```
 
 - `traces/run-success.json` — disruption detected → feasible plan → escalated on cost threshold → human **approves** → executed.
 - `traces/run-failure.json` — supply shock + no-stockout → optimizer **infeasible** → escalated → human **rejects**.
+- `results/metrics.md` — signal P/R/F1, held-out forecast MAPE + interval coverage, optimizer gap / savings / constraint satisfaction, and plan sensitivity to forecast error.
 
 ### Optional: route agent reasoning through OpenAI
 Set `USE_LLM=true` and `OPENAI_API_KEY` in `.env`. Defaults to **offline rule-based
@@ -75,12 +79,23 @@ src/tools/                 retrieval, forecaster, MILP allocator (agent tools)
 src/agents/                signal, forecast, planner, supervisor + HITL checkpoint
 src/orchestrator/graph.py  LangGraph state machine wiring it end-to-end
 src/observability/trace.py JSON trace recorder (steps, messages, tokens, cost, latency)
+src/evaluation/            held-out metrics: signal, forecast, optimizer, sensitivity
 traces/                    exported agent interaction traces (2 scenarios)
 writeup/reasoning.md       the "why X over Y" reasoning spine (write-up source)
-results/                   evaluation figures & metric tables
+results/                   evaluation.json + metrics.md
 ```
 
+## Results (from `python run.py --evaluate`)
+
+| Component | Metric | Value |
+|---|---|---|
+| Signal detection | Precision / Recall / F1 | 1.00 / 1.00 / 1.00 (clean synthetic signal) |
+| Forecast | Held-out MAPE / 80% coverage | 7.5% / 0.82 |
+| Optimizer | LP-relaxation gap | 0.04% |
+| Optimizer | Cost vs. greedy baseline | 56.6% lower |
+| Optimizer | Constraint satisfaction (MILP vs greedy) | 1.0 vs 0.8 |
+| Sensitivity | Plan cost elasticity to demand | ~2.2 |
+
 ## Status
-Schema, data generator, tools, agents, orchestrator, observability, and the reasoning notes are
-wired end-to-end. Next: evaluation harness (signal precision/recall, forecast
-sensitivity, baseline savings) and the final PDF + video.
+Schema, data generator, tools, agents, orchestrator, observability, evaluation harness, and the
+reasoning notes are wired end-to-end. Next: the final PDF write-up and walkthrough video.
