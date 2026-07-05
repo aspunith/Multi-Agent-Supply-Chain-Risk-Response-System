@@ -7,7 +7,7 @@ Autonomous agents that **sense** supplier disruption, **re-forecast** affected S
 human before execution.
 
 > **One track, not two.** The MILP optimizer and the forecaster are *tools invoked by agents*,
-> not the deliverable. The deliverable is the orchestration. See [writeup/reasoning.md](writeup/reasoning.md).
+> not the deliverable. The deliverable is the orchestration.
 
 ---
 
@@ -81,7 +81,6 @@ src/orchestrator/graph.py  LangGraph state machine wiring it end-to-end
 src/observability/trace.py JSON trace recorder (steps, messages, tokens, cost, latency)
 src/evaluation/            held-out metrics: signal, forecast, optimizer, sensitivity
 traces/                    exported agent interaction traces (2 scenarios)
-writeup/reasoning.md       the "why X over Y" reasoning spine (write-up source)
 results/                   evaluation.json + metrics.md
 ```
 

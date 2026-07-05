@@ -14,6 +14,9 @@ __pycache__/
 # Generated data (regenerate with `python data/generate_data.py`)
 data/generated/
 
+# Local-only write-up / reference notes (submitted separately, not part of the repo)
+writeup/
+
 # OS / editor
 .DS_Store
 Thumbs.db
