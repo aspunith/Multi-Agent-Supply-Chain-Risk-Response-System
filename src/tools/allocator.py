@@ -28,6 +28,7 @@ def solve_replenishment(
     allow_stockout: bool = True,
     budget: float | None = None,
     capacity_override: dict[str, float] | None = None,
+    relax_integrality: bool = False,
 ) -> dict:
     """Solve one replenishment period.
 
@@ -50,7 +51,11 @@ def solve_replenishment(
         for s in suppliers:
             key = (sid, s["supplier_id"])
             x[key] = pulp.LpVariable(f"x_{sid}_{s['supplier_id']}", lowBound=0)
-            y[key] = pulp.LpVariable(f"y_{sid}_{s['supplier_id']}", cat="Binary")
+            if relax_integrality:
+                # LP relaxation: y in [0,1] continuous -> gives a lower bound for the optimality gap.
+                y[key] = pulp.LpVariable(f"y_{sid}_{s['supplier_id']}", lowBound=0, upBound=1)
+            else:
+                y[key] = pulp.LpVariable(f"y_{sid}_{s['supplier_id']}", cat="Binary")
 
     # Objective
     purchase = pulp.lpSum(

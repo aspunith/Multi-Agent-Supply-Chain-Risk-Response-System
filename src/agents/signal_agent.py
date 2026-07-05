@@ -16,15 +16,15 @@ def _synth_recent_lead_times(supplier: dict, disrupted: bool, rng: np.random.Gen
     return list(np.maximum(1, rng.normal(base * mult, supplier["lead_time_std"], size=7)))
 
 
-def signal_agent(world: dict, recorder=None, rng=None) -> AgentMessage:
-    rng = rng or np.random.default_rng(7)
+def assess_suppliers(world: dict, rng: np.random.Generator) -> list[dict]:
+    """Score every supplier for disruption risk. Shared by the agent and the evaluation harness."""
     suppliers = world["suppliers"].to_dict("records")
     skus = world["skus"].to_dict("records")
     news = world["news"].to_dict("records")
     scenario = world["scenario"]
     retriever = NewsRetriever(news)
 
-    best = None  # (risk_score, supplier, signals, affected)
+    assessments = []
     for s in suppliers:
         disrupted = s["supplier_id"] == scenario["disrupted_supplier"]
         recent = _synth_recent_lead_times(s, disrupted, rng)
@@ -45,17 +45,29 @@ def signal_agent(world: dict, recorder=None, rng=None) -> AgentMessage:
             score += 0.35
             signals.append(RiskSignal(source="supplier_news",
                                       description=f"News keywords: {', '.join(news_flag['keyword_hits'])}"))
-        if best is None or score > best[0]:
-            affected = [k["sku_id"] for k in skus if k["primary_supplier"] == s["supplier_id"]]
-            best = (score, s, signals, affected)
+        assessments.append({
+            "supplier_id": s["supplier_id"],
+            "risk_score": float(min(1.0, score)),
+            "is_anomaly": anomaly["is_anomaly"],
+            "news_flagged": news_flag["flagged"],
+            "signals": signals,
+            "affected_skus": [k["sku_id"] for k in skus if k["primary_supplier"] == s["supplier_id"]],
+        })
+    return assessments
 
-    score, sup, signals, affected = best
-    score = float(min(1.0, score))
+
+def signal_agent(world: dict, recorder=None, rng=None) -> AgentMessage:
+    rng = rng or np.random.default_rng(7)
+    top = max(assess_suppliers(world, rng), key=lambda a: a["risk_score"])
+
+    score = float(top["risk_score"])
+    signals = top["signals"]
+    affected = top["affected_skus"]
     level = (RiskLevel.CRITICAL if score >= 0.85 else RiskLevel.HIGH if score >= 0.6
              else RiskLevel.MEDIUM if score >= 0.3 else RiskLevel.LOW)
 
     alert = RiskAlert(
-        supplier_id=sup["supplier_id"],
+        supplier_id=top["supplier_id"],
         affected_skus=affected,
         risk_level=level,
         risk_score=round(score, 3),
@@ -72,6 +84,6 @@ def signal_agent(world: dict, recorder=None, rng=None) -> AgentMessage:
     )
     if recorder:
         recorder.log_step("signal_agent", "assess_risk",
-                          {"supplier": sup["supplier_id"], "risk_score": round(score, 3), "level": level.value})
+                          {"supplier": top["supplier_id"], "risk_score": round(score, 3), "level": level.value})
         recorder.log_message(msg.to_record())
     return msg
