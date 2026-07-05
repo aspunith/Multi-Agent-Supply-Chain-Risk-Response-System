@@ -1,0 +1,791 @@
+{
+  "summary": {
+    "correlation_id": "run-failure",
+    "total_steps": 12,
+    "total_messages": 12,
+    "total_tokens": 0,
+    "total_cost_usd": 0.0,
+    "wall_time_s": 0.3153
+  },
+  "events": [
+    {
+      "ts_offset_s": 0.0365,
+      "type": "step",
+      "agent": "signal_agent",
+      "action": "assess_risk",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "supplier": "SUP-03",
+        "risk_score": 0.95,
+        "level": "critical"
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "f23563f5f720",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.519140Z",
+      "sender": "signal_agent",
+      "recipient": "forecast_agent",
+      "message_type": "risk_alert",
+      "payload": {
+        "supplier_id": "SUP-03",
+        "affected_skus": [
+          "SKU-006",
+          "SKU-010",
+          "SKU-017",
+          "SKU-020",
+          "SKU-021",
+          "SKU-022",
+          "SKU-026",
+          "SKU-029"
+        ],
+        "risk_level": "critical",
+        "risk_score": 0.95,
+        "signals": [
+          {
+            "source": "lead_time_monitor",
+            "description": "Lead time 32.64d vs 11d baseline (z=36.67)",
+            "metric": 32.64,
+            "threshold": 12.18
+          },
+          {
+            "source": "supplier_news",
+            "description": "News keywords: delay, congestion, shortage",
+            "metric": null,
+            "threshold": null
+          }
+        ],
+        "rationale": "Corroborated structured lead-time anomaly with unstructured news signal."
+      }
+    },
+    {
+      "ts_offset_s": 0.0513,
+      "type": "step",
+      "agent": "forecast_agent",
+      "action": "forecast_sku",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "sku_id": "SKU-006",
+        "method": "seasonal_trend",
+        "mape": 0.0697,
+        "confidence": 0.861
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "019e15f29e22",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.533877Z",
+      "sender": "forecast_agent",
+      "recipient": "planner_agent",
+      "message_type": "forecast_result",
+      "payload": {
+        "sku_id": "SKU-006",
+        "horizon_days": 14,
+        "point_forecast": [
+          49.58,
+          51.58,
+          48.49,
+          42.18,
+          38.05,
+          39.1,
+          44.17,
+          49.49,
+          51.49,
+          48.39,
+          42.08,
+          37.95,
+          39.01,
+          44.08
+        ],
+        "lower_80": [
+          43.11,
+          45.11,
+          42.01,
+          35.7,
+          31.57,
+          32.63,
+          37.7,
+          43.01,
+          45.01,
+          41.92,
+          35.61,
+          31.47,
+          32.53,
+          37.6
+        ],
+        "upper_80": [
+          56.06,
+          58.06,
+          54.96,
+          48.66,
+          44.52,
+          45.58,
+          50.65,
+          55.96,
+          57.96,
+          54.87,
+          48.56,
+          44.42,
+          45.48,
+          50.55
+        ],
+        "method": "seasonal_trend",
+        "backtest_mape": 0.0697,
+        "confidence": 0.861
+      }
+    },
+    {
+      "ts_offset_s": 0.0613,
+      "type": "step",
+      "agent": "forecast_agent",
+      "action": "forecast_sku",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "sku_id": "SKU-010",
+        "method": "seasonal_trend",
+        "mape": 0.1287,
+        "confidence": 0.743
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "0cc8b5ea4893",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.543923Z",
+      "sender": "forecast_agent",
+      "recipient": "planner_agent",
+      "message_type": "forecast_result",
+      "payload": {
+        "sku_id": "SKU-010",
+        "horizon_days": 14,
+        "point_forecast": [
+          51.44,
+          53.47,
+          49.01,
+          41.7,
+          35.88,
+          36.99,
+          44.05,
+          51.63,
+          53.67,
+          49.21,
+          41.9,
+          36.07,
+          37.19,
+          44.25
+        ],
+        "lower_80": [
+          44.6,
+          46.64,
+          42.17,
+          34.87,
+          29.04,
+          30.15,
+          37.22,
+          44.79,
+          46.83,
+          42.37,
+          35.06,
+          29.23,
+          30.35,
+          37.41
+        ],
+        "upper_80": [
+          58.27,
+          60.31,
+          55.85,
+          48.54,
+          42.72,
+          43.83,
+          50.89,
+          58.47,
+          60.51,
+          56.04,
+          48.74,
+          42.91,
+          44.02,
+          51.09
+        ],
+        "method": "seasonal_trend",
+        "backtest_mape": 0.1287,
+        "confidence": 0.743
+      }
+    },
+    {
+      "ts_offset_s": 0.0698,
+      "type": "step",
+      "agent": "forecast_agent",
+      "action": "forecast_sku",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "sku_id": "SKU-017",
+        "method": "seasonal_trend",
+        "mape": 0.109,
+        "confidence": 0.782
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "90f0792222a3",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.552430Z",
+      "sender": "forecast_agent",
+      "recipient": "planner_agent",
+      "message_type": "forecast_result",
+      "payload": {
+        "sku_id": "SKU-017",
+        "horizon_days": 14,
+        "point_forecast": [
+          36.77,
+          39.02,
+          33.0,
+          25.33,
+          20.12,
+          22.2,
+          29.19,
+          36.67,
+          38.92,
+          32.9,
+          25.23,
+          20.02,
+          22.1,
+          29.09
+        ],
+        "lower_80": [
+          32.0,
+          34.25,
+          28.23,
+          20.56,
+          15.35,
+          17.42,
+          24.41,
+          31.9,
+          34.15,
+          28.13,
+          20.46,
+          15.25,
+          17.32,
+          24.31
+        ],
+        "upper_80": [
+          41.55,
+          43.8,
+          37.78,
+          30.1,
+          24.89,
+          26.97,
+          33.96,
+          41.44,
+          43.69,
+          37.68,
+          30.0,
+          24.79,
+          26.87,
+          33.86
+        ],
+        "method": "seasonal_trend",
+        "backtest_mape": 0.109,
+        "confidence": 0.782
+      }
+    },
+    {
+      "ts_offset_s": 0.0822,
+      "type": "step",
+      "agent": "forecast_agent",
+      "action": "forecast_sku",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "sku_id": "SKU-020",
+        "method": "seasonal_trend",
+        "mape": 0.0832,
+        "confidence": 0.834
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "1276a0218e2c",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.564811Z",
+      "sender": "forecast_agent",
+      "recipient": "planner_agent",
+      "message_type": "forecast_result",
+      "payload": {
+        "sku_id": "SKU-020",
+        "horizon_days": 14,
+        "point_forecast": [
+          28.69,
+          30.66,
+          26.23,
+          21.96,
+          19.64,
+          20.37,
+          23.76,
+          28.76,
+          30.72,
+          26.29,
+          22.02,
+          19.7,
+          20.43,
+          23.82
+        ],
+        "lower_80": [
+          25.05,
+          27.02,
+          22.59,
+          18.32,
+          16.0,
+          16.73,
+          20.12,
+          25.12,
+          27.08,
+          22.65,
+          18.38,
+          16.06,
+          16.79,
+          20.18
+        ],
+        "upper_80": [
+          32.33,
+          34.3,
+          29.87,
+          25.6,
+          23.28,
+          24.01,
+          27.4,
+          32.4,
+          34.36,
+          29.93,
+          25.66,
+          23.34,
+          24.07,
+          27.46
+        ],
+        "method": "seasonal_trend",
+        "backtest_mape": 0.0832,
+        "confidence": 0.834
+      }
+    },
+    {
+      "ts_offset_s": 0.0955,
+      "type": "step",
+      "agent": "forecast_agent",
+      "action": "forecast_sku",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "sku_id": "SKU-021",
+        "method": "seasonal_trend",
+        "mape": 0.0233,
+        "confidence": 0.95
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "94c2753c2c20",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.578088Z",
+      "sender": "forecast_agent",
+      "recipient": "planner_agent",
+      "message_type": "forecast_result",
+      "payload": {
+        "sku_id": "SKU-021",
+        "horizon_days": 14,
+        "point_forecast": [
+          27.01,
+          27.01,
+          24.49,
+          19.41,
+          17.47,
+          17.91,
+          22.42,
+          26.93,
+          26.93,
+          24.41,
+          19.33,
+          17.39,
+          17.83,
+          22.34
+        ],
+        "lower_80": [
+          23.8,
+          23.8,
+          21.28,
+          16.21,
+          14.26,
+          14.71,
+          19.22,
+          23.73,
+          23.73,
+          21.21,
+          16.13,
+          14.19,
+          14.63,
+          19.14
+        ],
+        "upper_80": [
+          30.21,
+          30.21,
+          27.69,
+          22.61,
+          20.67,
+          21.11,
+          25.62,
+          30.13,
+          30.13,
+          27.61,
+          22.54,
+          20.6,
+          21.04,
+          25.55
+        ],
+        "method": "seasonal_trend",
+        "backtest_mape": 0.0233,
+        "confidence": 0.95
+      }
+    },
+    {
+      "ts_offset_s": 0.1091,
+      "type": "step",
+      "agent": "forecast_agent",
+      "action": "forecast_sku",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "sku_id": "SKU-022",
+        "method": "seasonal_trend",
+        "mape": 0.1541,
+        "confidence": 0.692
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "ec065313d238",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.591736Z",
+      "sender": "forecast_agent",
+      "recipient": "planner_agent",
+      "message_type": "forecast_result",
+      "payload": {
+        "sku_id": "SKU-022",
+        "horizon_days": 14,
+        "point_forecast": [
+          37.75,
+          39.31,
+          35.21,
+          30.44,
+          29.48,
+          28.08,
+          31.78,
+          37.75,
+          39.31,
+          35.22,
+          30.45,
+          29.49,
+          28.08,
+          31.78
+        ],
+        "lower_80": [
+          31.29,
+          32.84,
+          28.75,
+          23.98,
+          23.02,
+          21.61,
+          25.31,
+          31.29,
+          32.85,
+          28.75,
+          23.98,
+          23.02,
+          21.62,
+          25.32
+        ],
+        "upper_80": [
+          44.21,
+          45.77,
+          41.68,
+          36.91,
+          35.95,
+          34.54,
+          38.24,
+          44.22,
+          45.78,
+          41.68,
+          36.91,
+          35.95,
+          34.55,
+          38.25
+        ],
+        "method": "seasonal_trend",
+        "backtest_mape": 0.1541,
+        "confidence": 0.692
+      }
+    },
+    {
+      "ts_offset_s": 0.1218,
+      "type": "step",
+      "agent": "forecast_agent",
+      "action": "forecast_sku",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "sku_id": "SKU-026",
+        "method": "seasonal_trend",
+        "mape": 0.044,
+        "confidence": 0.912
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "6332937c700b",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.604375Z",
+      "sender": "forecast_agent",
+      "recipient": "planner_agent",
+      "message_type": "forecast_result",
+      "payload": {
+        "sku_id": "SKU-026",
+        "horizon_days": 14,
+        "point_forecast": [
+          42.91,
+          44.54,
+          40.62,
+          35.99,
+          32.22,
+          33.7,
+          38.89,
+          43.08,
+          44.72,
+          40.79,
+          36.16,
+          32.39,
+          33.87,
+          39.06
+        ],
+        "lower_80": [
+          40.2,
+          41.83,
+          37.91,
+          33.28,
+          29.51,
+          30.99,
+          36.18,
+          40.37,
+          42.01,
+          38.08,
+          33.45,
+          29.68,
+          31.16,
+          36.35
+        ],
+        "upper_80": [
+          45.62,
+          47.26,
+          43.33,
+          38.7,
+          34.93,
+          36.41,
+          41.6,
+          45.79,
+          47.43,
+          43.5,
+          38.87,
+          35.1,
+          36.58,
+          41.77
+        ],
+        "method": "seasonal_trend",
+        "backtest_mape": 0.044,
+        "confidence": 0.912
+      }
+    },
+    {
+      "ts_offset_s": 0.1344,
+      "type": "step",
+      "agent": "forecast_agent",
+      "action": "forecast_sku",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "sku_id": "SKU-029",
+        "method": "seasonal_trend",
+        "mape": 0.0907,
+        "confidence": 0.819
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "95ea935b8bf9",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.616974Z",
+      "sender": "forecast_agent",
+      "recipient": "planner_agent",
+      "message_type": "forecast_result",
+      "payload": {
+        "sku_id": "SKU-029",
+        "horizon_days": 14,
+        "point_forecast": [
+          59.79,
+          61.23,
+          58.25,
+          55.06,
+          53.13,
+          54.06,
+          56.19,
+          59.98,
+          61.43,
+          58.44,
+          55.25,
+          53.33,
+          54.25,
+          56.39
+        ],
+        "lower_80": [
+          53.38,
+          54.82,
+          51.84,
+          48.65,
+          46.72,
+          47.65,
+          49.78,
+          53.57,
+          55.01,
+          52.03,
+          48.84,
+          46.92,
+          47.84,
+          49.98
+        ],
+        "upper_80": [
+          66.2,
+          67.64,
+          64.66,
+          61.47,
+          59.55,
+          60.47,
+          62.61,
+          66.39,
+          67.84,
+          64.86,
+          61.66,
+          59.74,
+          60.66,
+          62.8
+        ],
+        "method": "seasonal_trend",
+        "backtest_mape": 0.0907,
+        "confidence": 0.819
+      }
+    },
+    {
+      "ts_offset_s": 0.3068,
+      "type": "step",
+      "agent": "planner_agent",
+      "action": "optimize_replenishment",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "feasible": false,
+        "status": "Infeasible",
+        "total_cost": 0.0,
+        "baseline_cost": 253168.71,
+        "cost_delta": 0.0,
+        "emergency_order_cost": 0.0,
+        "n_emergency_actions": 0
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "8ae77d67b376",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.789339Z",
+      "sender": "planner_agent",
+      "recipient": "supervisor",
+      "message_type": "replenishment_proposal",
+      "payload": {
+        "proposal_id": "2e2b1bb2b158",
+        "feasible": false,
+        "actions": [],
+        "total_cost": 0.0,
+        "baseline_cost": 253168.71,
+        "cost_delta": 0.0,
+        "constraint_report": {
+          "all_hard_constraints_met": false,
+          "capacity_ok": false,
+          "budget_ok": true,
+          "unmet_demand_units": 0.0,
+          "notes": [
+            "solver_status=Infeasible"
+          ]
+        },
+        "max_single_order_cost": 0.0,
+        "emergency_order_cost": 0.0
+      }
+    },
+    {
+      "ts_offset_s": 0.3096,
+      "type": "step",
+      "agent": "supervisor",
+      "action": "reconcile",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "route": "escalate",
+        "triggers": [
+          "infeasible_plan"
+        ]
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "a34330d14827",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.792199Z",
+      "sender": "supervisor",
+      "recipient": "human",
+      "message_type": "escalation_request",
+      "payload": {
+        "reason": "Optimizer returned no feasible plan under current constraints.",
+        "severity": "critical",
+        "triggers": [
+          "infeasible_plan"
+        ],
+        "requires_human": true
+      }
+    },
+    {
+      "ts_offset_s": 0.3127,
+      "type": "step",
+      "agent": "human",
+      "action": "decision",
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "detail": {
+        "decision": "reject",
+        "notes": "Plan infeasible under tightened constraints; hold and renegotiate capacity."
+      }
+    },
+    {
+      "type": "message",
+      "message_id": "6c396e4e9fe5",
+      "correlation_id": "run-failure",
+      "timestamp": "2026-07-04T11:20:37.795287Z",
+      "sender": "human",
+      "recipient": "supervisor",
+      "message_type": "human_decision",
+      "payload": {
+        "decision": "reject",
+        "decided_by": "supply_ops_lead",
+        "overrides": {},
+        "notes": "Plan infeasible under tightened constraints; hold and renegotiate capacity."
+      }
+    }
+  ]
+}
