@@ -1,0 +1,21 @@
+# Python 3.11+ (validated on 3.13.5)
+# Pinned for reproducibility (Avathon AI Intelligence Challenge — Track A / S1)
+
+# --- Orchestration & LLM ---
+langgraph==0.2.60
+langchain-core==0.3.28
+langchain-openai==0.2.14
+openai==1.58.1
+
+# --- Data models & validation ---
+pydantic==2.10.4
+
+# --- Data / ML tooling (used INSIDE agent tools, not as the deliverable) ---
+pandas==2.2.3
+numpy==2.2.1
+scikit-learn==1.6.0
+pulp==2.9.0
+
+# --- Utilities ---
+python-dotenv==1.0.1
+rich==13.9.4
