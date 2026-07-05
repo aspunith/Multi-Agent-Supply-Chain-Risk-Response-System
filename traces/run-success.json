@@ -5,11 +5,11 @@
     "total_messages": 12,
     "total_tokens": 0,
     "total_cost_usd": 0.0,
-    "wall_time_s": 0.9619
+    "wall_time_s": 1.1113
   },
   "events": [
     {
-      "ts_offset_s": 0.0333,
+      "ts_offset_s": 0.0595,
       "type": "step",
       "agent": "signal_agent",
       "action": "assess_risk",
@@ -23,9 +23,9 @@
     },
     {
       "type": "message",
-      "message_id": "27a1b3318452",
+      "message_id": "1ab1608389a0",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:36.548769Z",
+      "timestamp": "2026-07-05T06:34:56.066509Z",
       "sender": "signal_agent",
       "recipient": "forecast_agent",
       "message_type": "risk_alert",
@@ -61,7 +61,7 @@
       }
     },
     {
-      "ts_offset_s": 0.0492,
+      "ts_offset_s": 0.0866,
       "type": "step",
       "agent": "forecast_agent",
       "action": "forecast_sku",
@@ -76,9 +76,9 @@
     },
     {
       "type": "message",
-      "message_id": "54ae86f6b823",
+      "message_id": "39578aed9327",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:36.564460Z",
+      "timestamp": "2026-07-05T06:34:56.093140Z",
       "sender": "forecast_agent",
       "recipient": "planner_agent",
       "message_type": "forecast_result",
@@ -139,7 +139,7 @@
       }
     },
     {
-      "ts_offset_s": 0.0623,
+      "ts_offset_s": 0.1076,
       "type": "step",
       "agent": "forecast_agent",
       "action": "forecast_sku",
@@ -154,9 +154,9 @@
     },
     {
       "type": "message",
-      "message_id": "7bf6943edca1",
+      "message_id": "15e6fb1ed98d",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:36.577722Z",
+      "timestamp": "2026-07-05T06:34:56.114533Z",
       "sender": "forecast_agent",
       "recipient": "planner_agent",
       "message_type": "forecast_result",
@@ -217,7 +217,7 @@
       }
     },
     {
-      "ts_offset_s": 0.074,
+      "ts_offset_s": 0.1283,
       "type": "step",
       "agent": "forecast_agent",
       "action": "forecast_sku",
@@ -232,9 +232,9 @@
     },
     {
       "type": "message",
-      "message_id": "e9f3b2d1b061",
+      "message_id": "415644a64c5a",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:36.589503Z",
+      "timestamp": "2026-07-05T06:34:56.135269Z",
       "sender": "forecast_agent",
       "recipient": "planner_agent",
       "message_type": "forecast_result",
@@ -295,7 +295,7 @@
       }
     },
     {
-      "ts_offset_s": 0.0868,
+      "ts_offset_s": 0.1466,
       "type": "step",
       "agent": "forecast_agent",
       "action": "forecast_sku",
@@ -310,9 +310,9 @@
     },
     {
       "type": "message",
-      "message_id": "31d85ccebdec",
+      "message_id": "7824fae76609",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:36.602290Z",
+      "timestamp": "2026-07-05T06:34:56.153600Z",
       "sender": "forecast_agent",
       "recipient": "planner_agent",
       "message_type": "forecast_result",
@@ -373,7 +373,7 @@
       }
     },
     {
-      "ts_offset_s": 0.1017,
+      "ts_offset_s": 0.1611,
       "type": "step",
       "agent": "forecast_agent",
       "action": "forecast_sku",
@@ -388,9 +388,9 @@
     },
     {
       "type": "message",
-      "message_id": "a125fc81f10f",
+      "message_id": "e7217dd883d3",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:36.617164Z",
+      "timestamp": "2026-07-05T06:34:56.168037Z",
       "sender": "forecast_agent",
       "recipient": "planner_agent",
       "message_type": "forecast_result",
@@ -451,7 +451,7 @@
       }
     },
     {
-      "ts_offset_s": 0.1132,
+      "ts_offset_s": 0.1841,
       "type": "step",
       "agent": "forecast_agent",
       "action": "forecast_sku",
@@ -466,9 +466,9 @@
     },
     {
       "type": "message",
-      "message_id": "09889e8145de",
+      "message_id": "e25309834604",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:36.628629Z",
+      "timestamp": "2026-07-05T06:34:56.190974Z",
       "sender": "forecast_agent",
       "recipient": "planner_agent",
       "message_type": "forecast_result",
@@ -529,7 +529,7 @@
       }
     },
     {
-      "ts_offset_s": 0.1247,
+      "ts_offset_s": 0.2016,
       "type": "step",
       "agent": "forecast_agent",
       "action": "forecast_sku",
@@ -544,9 +544,9 @@
     },
     {
       "type": "message",
-      "message_id": "cceef024b8b2",
+      "message_id": "ffbf1ce91283",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:36.640135Z",
+      "timestamp": "2026-07-05T06:34:56.208554Z",
       "sender": "forecast_agent",
       "recipient": "planner_agent",
       "message_type": "forecast_result",
@@ -607,7 +607,7 @@
       }
     },
     {
-      "ts_offset_s": 0.1342,
+      "ts_offset_s": 0.219,
       "type": "step",
       "agent": "forecast_agent",
       "action": "forecast_sku",
@@ -622,9 +622,9 @@
     },
     {
       "type": "message",
-      "message_id": "f93de86a12e9",
+      "message_id": "03a18e579bd7",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:36.649670Z",
+      "timestamp": "2026-07-05T06:34:56.225950Z",
       "sender": "forecast_agent",
       "recipient": "planner_agent",
       "message_type": "forecast_result",
@@ -685,7 +685,7 @@
       }
     },
     {
-      "ts_offset_s": 0.9504,
+      "ts_offset_s": 1.0936,
       "type": "step",
       "agent": "planner_agent",
       "action": "optimize_replenishment",
@@ -703,14 +703,14 @@
     },
     {
       "type": "message",
-      "message_id": "4673713ad245",
+      "message_id": "85d797bd3db4",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:37.465613Z",
+      "timestamp": "2026-07-05T06:34:57.099719Z",
       "sender": "planner_agent",
       "recipient": "supervisor",
       "message_type": "replenishment_proposal",
       "payload": {
-        "proposal_id": "6b8dc62d8a80",
+        "proposal_id": "3fd268447965",
         "feasible": true,
         "actions": [
           {
@@ -822,7 +822,7 @@
       }
     },
     {
-      "ts_offset_s": 0.9537,
+      "ts_offset_s": 1.1011,
       "type": "step",
       "agent": "supervisor",
       "action": "reconcile",
@@ -838,9 +838,9 @@
     },
     {
       "type": "message",
-      "message_id": "3ce04bf95ddf",
+      "message_id": "6c90220bbf3a",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:37.468934Z",
+      "timestamp": "2026-07-05T06:34:57.107547Z",
       "sender": "supervisor",
       "recipient": "human",
       "message_type": "escalation_request",
@@ -855,7 +855,7 @@
       }
     },
     {
-      "ts_offset_s": 0.9593,
+      "ts_offset_s": 1.1072,
       "type": "step",
       "agent": "human",
       "action": "decision",
@@ -868,9 +868,9 @@
     },
     {
       "type": "message",
-      "message_id": "05220dbd26cf",
+      "message_id": "68d9c84ef439",
       "correlation_id": "run-success",
-      "timestamp": "2026-07-04T11:20:37.474483Z",
+      "timestamp": "2026-07-05T06:34:57.113742Z",
       "sender": "human",
       "recipient": "supervisor",
       "message_type": "human_decision",

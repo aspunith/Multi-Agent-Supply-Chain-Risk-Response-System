@@ -1,0 +1,365 @@
+{
+  "signal": {
+    "threshold": 0.3,
+    "confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4
+    },
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "per_supplier": [
+      {
+        "supplier_id": "SUP-00",
+        "risk_score": 0.0,
+        "predicted_disrupted": false,
+        "actual_disrupted": false
+      },
+      {
+        "supplier_id": "SUP-01",
+        "risk_score": 0.0,
+        "predicted_disrupted": false,
+        "actual_disrupted": false
+      },
+      {
+        "supplier_id": "SUP-02",
+        "risk_score": 0.0,
+        "predicted_disrupted": false,
+        "actual_disrupted": false
+      },
+      {
+        "supplier_id": "SUP-03",
+        "risk_score": 0.95,
+        "predicted_disrupted": true,
+        "actual_disrupted": true
+      },
+      {
+        "supplier_id": "SUP-04",
+        "risk_score": 0.0,
+        "predicted_disrupted": false,
+        "actual_disrupted": false
+      }
+    ]
+  },
+  "forecast": {
+    "aggregate": {
+      "n_skus": 30,
+      "mape_mean": 0.0746,
+      "mape_median": 0.0728,
+      "mae_mean": 2.8,
+      "rmse_mean": 3.54,
+      "coverage_80_mean": 0.824,
+      "at_risk_mape_mean": 0.0779
+    },
+    "per_sku": [
+      {
+        "sku_id": "SKU-000",
+        "mape": 0.088,
+        "mae": 2.91,
+        "rmse": 3.66,
+        "coverage_80": 0.929,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-001",
+        "mape": 0.083,
+        "mae": 3.3,
+        "rmse": 4.63,
+        "coverage_80": 0.857,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-002",
+        "mape": 0.1065,
+        "mae": 3.09,
+        "rmse": 3.39,
+        "coverage_80": 0.857,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-003",
+        "mape": 0.0574,
+        "mae": 3.15,
+        "rmse": 3.74,
+        "coverage_80": 0.857,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-004",
+        "mape": 0.0245,
+        "mae": 1.11,
+        "rmse": 1.34,
+        "coverage_80": 1.0,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-005",
+        "mape": 0.0502,
+        "mae": 2.14,
+        "rmse": 2.65,
+        "coverage_80": 0.643,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-006",
+        "mape": 0.0661,
+        "mae": 3.16,
+        "rmse": 3.67,
+        "coverage_80": 1.0,
+        "at_risk": true
+      },
+      {
+        "sku_id": "SKU-007",
+        "mape": 0.0756,
+        "mae": 4.51,
+        "rmse": 6.27,
+        "coverage_80": 0.786,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-008",
+        "mape": 0.0655,
+        "mae": 1.96,
+        "rmse": 2.7,
+        "coverage_80": 0.643,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-009",
+        "mape": 0.0336,
+        "mae": 1.19,
+        "rmse": 1.71,
+        "coverage_80": 0.929,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-010",
+        "mape": 0.0944,
+        "mae": 3.64,
+        "rmse": 4.88,
+        "coverage_80": 0.857,
+        "at_risk": true
+      },
+      {
+        "sku_id": "SKU-011",
+        "mape": 0.1404,
+        "mae": 5.33,
+        "rmse": 6.44,
+        "coverage_80": 0.714,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-012",
+        "mape": 0.0744,
+        "mae": 2.67,
+        "rmse": 2.94,
+        "coverage_80": 0.929,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-013",
+        "mape": 0.1094,
+        "mae": 2.67,
+        "rmse": 3.21,
+        "coverage_80": 0.786,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-014",
+        "mape": 0.0798,
+        "mae": 2.32,
+        "rmse": 2.75,
+        "coverage_80": 0.643,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-015",
+        "mape": 0.0712,
+        "mae": 3.24,
+        "rmse": 4.08,
+        "coverage_80": 0.857,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-016",
+        "mape": 0.1058,
+        "mae": 4.07,
+        "rmse": 5.14,
+        "coverage_80": 0.643,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-017",
+        "mape": 0.09,
+        "mae": 2.9,
+        "rmse": 3.68,
+        "coverage_80": 0.786,
+        "at_risk": true
+      },
+      {
+        "sku_id": "SKU-018",
+        "mape": 0.0681,
+        "mae": 2.37,
+        "rmse": 3.18,
+        "coverage_80": 0.929,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-019",
+        "mape": 0.0587,
+        "mae": 2.34,
+        "rmse": 2.89,
+        "coverage_80": 0.714,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-020",
+        "mape": 0.0887,
+        "mae": 2.04,
+        "rmse": 2.44,
+        "coverage_80": 0.786,
+        "at_risk": true
+      },
+      {
+        "sku_id": "SKU-021",
+        "mape": 0.0332,
+        "mae": 0.74,
+        "rmse": 1.09,
+        "coverage_80": 1.0,
+        "at_risk": true
+      },
+      {
+        "sku_id": "SKU-022",
+        "mape": 0.1186,
+        "mae": 3.81,
+        "rmse": 4.51,
+        "coverage_80": 0.857,
+        "at_risk": true
+      },
+      {
+        "sku_id": "SKU-023",
+        "mape": 0.0859,
+        "mae": 4.01,
+        "rmse": 5.02,
+        "coverage_80": 0.857,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-024",
+        "mape": 0.0415,
+        "mae": 1.56,
+        "rmse": 1.97,
+        "coverage_80": 0.929,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-025",
+        "mape": 0.0373,
+        "mae": 2.02,
+        "rmse": 2.45,
+        "coverage_80": 0.857,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-026",
+        "mape": 0.0609,
+        "mae": 2.15,
+        "rmse": 2.56,
+        "coverage_80": 0.643,
+        "at_risk": true
+      },
+      {
+        "sku_id": "SKU-027",
+        "mape": 0.0543,
+        "mae": 2.26,
+        "rmse": 2.76,
+        "coverage_80": 0.857,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-028",
+        "mape": 0.1042,
+        "mae": 3.98,
+        "rmse": 5.34,
+        "coverage_80": 0.714,
+        "at_risk": false
+      },
+      {
+        "sku_id": "SKU-029",
+        "mape": 0.0713,
+        "mae": 3.5,
+        "rmse": 5.09,
+        "coverage_80": 0.857,
+        "at_risk": true
+      }
+    ]
+  },
+  "optimization": {
+    "milp_objective": 109767.68,
+    "lp_relaxation_objective": 109722.97,
+    "optimality_gap_pct": 0.041,
+    "greedy_baseline_cost": 253168.71,
+    "objective_improvement_vs_greedy_pct": 56.64,
+    "milp_constraint_satisfaction": {
+      "met": 5,
+      "total": 5,
+      "rate": 1.0,
+      "violations": []
+    },
+    "greedy_constraint_satisfaction": {
+      "met": 4,
+      "total": 5,
+      "rate": 0.8,
+      "violations": [
+        {
+          "supplier_id": "SUP-03",
+          "used": 800.0,
+          "capacity": 231
+        }
+      ]
+    },
+    "milp_runtime_note": "single-period MILP over at-risk SKUs solves in <1s on CPU"
+  },
+  "sensitivity": {
+    "perturbations": [
+      {
+        "demand_factor": 0.8,
+        "feasible": true,
+        "total_cost": 72971.31,
+        "n_actions": 13,
+        "unmet_demand_units": 0.0
+      },
+      {
+        "demand_factor": 0.9,
+        "feasible": true,
+        "total_cost": 88720.1,
+        "n_actions": 12,
+        "unmet_demand_units": 0.0
+      },
+      {
+        "demand_factor": 1.0,
+        "feasible": true,
+        "total_cost": 109767.68,
+        "n_actions": 13,
+        "unmet_demand_units": 405.44
+      },
+      {
+        "demand_factor": 1.1,
+        "feasible": true,
+        "total_cost": 137253.33,
+        "n_actions": 11,
+        "unmet_demand_units": 817.08
+      },
+      {
+        "demand_factor": 1.2,
+        "feasible": true,
+        "total_cost": 169791.48,
+        "n_actions": 10,
+        "unmet_demand_units": 1228.73
+      }
+    ],
+    "cost_elasticity_to_demand": 2.211
+  }
+}
